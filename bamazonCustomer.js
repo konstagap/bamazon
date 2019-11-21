@@ -44,3 +44,12 @@ inquirer
       .then(function(answer) {
         //  console.log(answer.userProductId)
         connection.query("SELECT * FROM products", function(err, res) {
+          if (err) throw err;
+          var chosenItem;
+          for (var i = 0; i < res.length; i++) {
+            if (res[i].item_id === parseInt(answer.userProductId)) {
+              chosenItem = res[i];
+            }
+          }
+          //    * If not, the app should log a phrase like `Insufficient quantity!`,
+          //         //  and then prevent the order from going through.

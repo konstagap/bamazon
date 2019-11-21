@@ -21,4 +21,7 @@ connection.connect(function(err) {
     "Create New Department",
     "Exit"
   ]
-})
+})    .then(function(answer) {
+  // based on their answer, either call the bid or the post functions
+  if (answer.supervisorOptions === "View Product Sales by Department") {
+    salesByDepartment();

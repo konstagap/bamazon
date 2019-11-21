@@ -62,3 +62,12 @@ connection.connect(function(err) {
           optionList();
         });
       }
+      //  * If a manager selects `Add to Inventory`, your app should display a prompt that will
+//  let the manager "add more" of any item currently in the store.
+function addToInventory() {
+  connection.query("SELECT * FROM products", function(err, res) {
+    if (err) throw err;
+    var items = [];
+    for (i = 0; i < res.length; i++) {
+      items.push(`ID:${res[i].item_id} NAME:${res[i].product_name}`);
+    }

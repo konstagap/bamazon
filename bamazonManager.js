@@ -97,4 +97,14 @@ function addToInventory() {
           ) {
             chosenItem = res[i];
           }
-        }
+        }  connection.query(
+            "UPDATE products SET ? WHERE ?",
+            [
+              {
+                stock_quantity:
+                  parseInt(chosenItem.stock_quantity) + parseInt(answer.addNumber)
+              },
+              {
+                item_id: chosenItem.item_id
+              }
+            ],

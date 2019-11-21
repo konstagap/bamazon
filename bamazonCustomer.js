@@ -12,34 +12,43 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId + "\n");
   userOptions();
 });
-inquirer
-.prompt([
-  //    * The first should ask them the ID of the product they would like to buy.
-  {
-    type: "input",
-    name: "userProductId",
-    message: "Enter ID fo product you would like to buy",
-    validate: function(value) {
-      if (isNaN(value) === false) {
-        return true;
-      }
-      return false;
-    }
-  },
-    //    * The second message should ask how many units of the product they would like to buy.
-    {
-      type: "input",
-      name: "userProductUnits",
-      message: "How many units would you like to buy?",
-      validate: function(value) {
-        if (isNaN(value) === false) {
-          return true;
+
+function userOptions() {
+  connection.query("SELECT * FROM products", function(err, res) {
+    if (err) throw err;
+    // Log all results of the SELECT statement
+    console.log("\n");
+    console.table(res);
+    console.log("\n");
+
+    inquirer
+      .prompt([
+        //    * The first should ask them the ID of the product they would like to buy.
+        {
+          type: "input",
+          name: "userProductId",
+          message: "Enter ID fo product you would like to buy",
+          validate: function(value) {
+            if (isNaN(value) === false) {
+              return true;
+            }
+            return false;
+          }
+        },
+        //    * The second message should ask how many units of the product they would like to buy.
+        {
+          type: "input",
+          name: "userProductUnits",
+          message: "How many units would you like to buy?",
+          validate: function(value) {
+            if (isNaN(value) === false) {
+              return true;
+            }
+            return false;
+          }
         }
-        return false;
-      }
-    }
-])
- // 7. Once the customer has placed the order, your application should check
+      ])
+      // 7. Once the customer has placed the order, your application should check
       //  if your store has enough of the product to meet the customer's request.
       .then(function(answer) {
         //  console.log(answer.userProductId)
@@ -89,3 +98,18 @@ inquirer
                       choices: ["Yes", "No"]
                     }
                   ])
+                  .then(function(answer) {
+                    if (answer.continue === "Yes") {
+                      userOptions();
+                    } else if (answer.continue === "No") {
+                      connection.end();
+                      return;
+                    }
+                  });
+              }
+            );
+          }
+        });
+      });
+  });
+}

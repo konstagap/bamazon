@@ -1,6 +1,6 @@
 
 ## Instructions
-
+## Demonstation link https://www.youtube.com/watch?v=_uyh0_jGnEs
 ### Customer View
 
 1. Application called `bamazonCustomer.js`. Running this application will first display all of the items available for sale. Include the ids, names, and prices of products for sale.

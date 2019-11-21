@@ -26,4 +26,16 @@ inquirer
       return false;
     }
   },
+    //    * The second message should ask how many units of the product they would like to buy.
+    {
+      type: "input",
+      name: "userProductUnits",
+      message: "How many units would you like to buy?",
+      validate: function(value) {
+        if (isNaN(value) === false) {
+          return true;
+        }
+        return false;
+      }
+    }
 ])

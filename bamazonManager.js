@@ -50,3 +50,15 @@ connection.connect(function(err) {
           optionList();
         });
       }
+      function displayLowInventory() {
+        connection.query("SELECT * FROM products WHERE stock_quantity <5", function(
+          err,
+          res
+        ) {
+          if (err) throw err;
+          console.log("\n");
+          console.table(res);
+          console.log("\n");
+          optionList();
+        });
+      }

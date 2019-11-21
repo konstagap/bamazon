@@ -163,4 +163,8 @@ function addToInventory() {
                 return false;
               }
         },
-    ])
+    ]).then(function(answer){
+        console.log("Inserting a new product...\n");
+         connection.query(
+          "INSERT INTO products SET ?",
+          {

@@ -53,3 +53,8 @@ inquirer
           }
           //    * If not, the app should log a phrase like `Insufficient quantity!`,
           //         //  and then prevent the order from going through.
+          if (chosenItem.stock_quantity < answer.userProductUnits) {
+            console.log(`Insufficient quantity! Not enought product`);
+          } else {
+            connection.query(
+              "UPDATE products SET ? WHERE ?",

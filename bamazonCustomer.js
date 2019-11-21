@@ -70,3 +70,12 @@ inquirer
                   item_id: chosenItem.item_id
                 }
               ],
+              function(err, res) {
+                if (err) throw err;
+                console.log("\nPurchase made successfully!");
+                console.log(
+                  "Your total price is: " +
+                    parseInt(answer.userProductUnits) *
+                      parseInt(chosenItem.price) +
+                    "$"
+                );

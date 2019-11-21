@@ -167,4 +167,8 @@ function addToInventory() {
         console.log("Inserting a new product...\n");
          connection.query(
           "INSERT INTO products SET ?",
-          {
+          {    product_name:answer.newProductName,
+            department_name:answer.newProductDepartment,
+            price: answer.newProductPrice,
+            stock_quantity:answer.newProductQuantity
+          },

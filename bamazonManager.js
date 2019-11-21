@@ -26,4 +26,7 @@ connection.connect(function(err) {
           "Add New Product",
           "Exit"
         ]
-      })
+      }).then(function(answer) {
+        // based on their answer, either call the bid or the post functions
+        if (answer.managerOptions === "View Products for Sale") {
+          displayProducts();

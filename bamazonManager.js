@@ -12,3 +12,18 @@ connection.connect(function(err) {
     console.log("connected as id " + connection.threadId + "\n");
     optionList();
   });
+
+  function optionList() {
+    inquirer
+      .prompt({
+        name: "managerOptions",
+        type: "list",
+        message: "Choose between options",
+        choices: [
+          "View Products for Sale",
+          "View Low Inventory",
+          "Add to Inventory",
+          "Add New Product",
+          "Exit"
+        ]
+      })

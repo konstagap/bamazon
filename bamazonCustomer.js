@@ -79,3 +79,13 @@ inquirer
                       parseInt(chosenItem.price) +
                     "$"
                 );
+                console.log("\n-----------------------------------\n");
+                inquirer
+                  .prompt([
+                    {
+                      type: "list",
+                      name: "continue",
+                      message: "Would you like to continue shopping?",
+                      choices: ["Yes", "No"]
+                    }
+                  ])

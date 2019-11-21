@@ -41,3 +41,12 @@ connection.connect(function(err) {
           }
         });
     }
+    function displayProducts() {
+        connection.query("SELECT * FROM products", function(err, res) {
+          if (err) throw err;
+          console.log("\n");
+          console.table(res);
+          console.log("\n");
+          optionList();
+        });
+      }

@@ -77,4 +77,15 @@ function addToInventory() {
         name: "addToItem",
         message: "Choose what item would you like to add to",
         choices: items
-      },
+      },  {
+        type: "input",
+        name: "addNumber",
+        message: "How many item would you like to add?",
+        validate: function(value) {
+          if (isNaN(value) === false) {
+            return true;
+          }
+          return false;
+        }
+      }
+    ])

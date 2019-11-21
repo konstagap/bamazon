@@ -30,3 +30,5 @@ connection.connect(function(err) {
         // based on their answer, either call the bid or the post functions
         if (answer.managerOptions === "View Products for Sale") {
           displayProducts();
+        } else if (answer.managerOptions === "View Low Inventory") {
+            displayLowInventory();

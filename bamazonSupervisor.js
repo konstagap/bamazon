@@ -11,17 +11,27 @@ connection.connect(function(err) {
   if (err) throw err;
   console.log("connected as id " + connection.threadId + "\n");
   optionsList();
-});function optionsList(){
+});
+function optionsList() {
   inquirer
-  .prompt({  name: "supervisorOptions",
-  type: "rawlist",
-  message: "Choose between options",
-  choices: [
-    "View Product Sales by Department",
-    "Create New Department",
-    "Exit"
-  ]
-})    .then(function(answer) {
-  // based on their answer, either call the bid or the post functions
-  if (answer.supervisorOptions === "View Product Sales by Department") {
-    salesByDepartment();
+    .prompt({
+      name: "supervisorOptions",
+      type: "rawlist",
+      message: "Choose between options",
+      choices: [
+        "View Product Sales by Department",
+        "Create New Department",
+        "Exit"
+      ]
+    })
+    .then(function(answer) {
+      // based on their answer, either call the bid or the post functions
+      if (answer.supervisorOptions === "View Product Sales by Department") {
+        salesByDepartment();
+      } else if (answer.supervisorOptions === "Create New Department") {
+        optionsList();
+      } else {
+        connection.end();
+      }
+    });
+}

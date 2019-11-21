@@ -36,3 +36,8 @@ connection.connect(function(err) {
             addToInventory();
         } else if (answer.managerOptions === "Add New Product") {
             addNewProduct();
+        } else {
+            connection.end();
+          }
+        });
+    }

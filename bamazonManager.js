@@ -70,4 +70,11 @@ function addToInventory() {
     var items = [];
     for (i = 0; i < res.length; i++) {
       items.push(`ID:${res[i].item_id} NAME:${res[i].product_name}`);
-    }
+    } inquirer
+    .prompt([
+      {
+        type: "rawlist",
+        name: "addToItem",
+        message: "Choose what item would you like to add to",
+        choices: items
+      },

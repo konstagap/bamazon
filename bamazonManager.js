@@ -88,4 +88,13 @@ function addToInventory() {
           return false;
         }
       }
-    ])
+    ])   .then(function(answer) {
+        var chosenItem;
+        for (var i = 0; i < res.length; i++) {
+          if (
+            `ID:${res[i].item_id} NAME:${res[i].product_name}` ===
+            answer.addToItem
+          ) {
+            chosenItem = res[i];
+          }
+        }

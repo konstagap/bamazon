@@ -142,4 +142,14 @@ function addToInventory() {
                 }
                 return false;
               }
-          },
+          },  {
+            type: "input",
+            name: "newProductPrice",
+            message: "Type new product price?",
+            validate: function(value) {
+                if (isNaN(value) === false && (value)) {
+                  return true;
+                }
+                return false;
+              }
+        },

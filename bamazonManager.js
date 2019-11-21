@@ -152,4 +152,15 @@ function addToInventory() {
                 }
                 return false;
               }
+        },  {
+            type: "input",
+            name: "newProductQuantity",
+            message: "Type quantity of new product?",
+            validate: function(value) {
+                if (isNaN(value) === false && (value)) {
+                  return true;
+                }
+                return false;
+              }
         },
+    ])

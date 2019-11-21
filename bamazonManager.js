@@ -107,4 +107,15 @@ function addToInventory() {
               {
                 item_id: chosenItem.item_id
               }
-            ],
+            ],  function(err, res) {
+                if (err) throw err;
+                console.log(
+                  `\n You have added ${answer.addNumber} items to ${chosenItem.product_name} successfully!`
+                );
+                console.log("-----------------------------------\n");
+                optionList();
+              }
+            );
+          });
+      });
+    }

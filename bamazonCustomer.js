@@ -12,3 +12,18 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId + "\n");
   userOptions();
 });
+inquirer
+.prompt([
+  //    * The first should ask them the ID of the product they would like to buy.
+  {
+    type: "input",
+    name: "userProductId",
+    message: "Enter ID fo product you would like to buy",
+    validate: function(value) {
+      if (isNaN(value) === false) {
+        return true;
+      }
+      return false;
+    }
+  },
+])

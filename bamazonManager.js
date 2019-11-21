@@ -32,3 +32,5 @@ connection.connect(function(err) {
           displayProducts();
         } else if (answer.managerOptions === "View Low Inventory") {
             displayLowInventory();
+        } else if (answer.managerOptions === "Add to Inventory") {
+            addToInventory();

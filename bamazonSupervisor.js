@@ -13,4 +13,12 @@ connection.connect(function(err) {
   optionsList();
 });function optionsList(){
   inquirer
-  .prompt({
+  .prompt({  name: "supervisorOptions",
+  type: "rawlist",
+  message: "Choose between options",
+  choices: [
+    "View Product Sales by Department",
+    "Create New Department",
+    "Exit"
+  ]
+})

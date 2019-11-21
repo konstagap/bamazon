@@ -39,3 +39,8 @@ inquirer
       }
     }
 ])
+ // 7. Once the customer has placed the order, your application should check
+      //  if your store has enough of the product to meet the customer's request.
+      .then(function(answer) {
+        //  console.log(answer.userProductId)
+        connection.query("SELECT * FROM products", function(err, res) {

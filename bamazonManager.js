@@ -132,4 +132,14 @@ function addToInventory() {
                 }
                 return false;
               }
+          },    {
+            type: "input",
+            name: "newProductDepartment",
+            message: "Type new product department?",
+            validate: function(value) {
+                if (value) {
+                  return true;
+                }
+                return false;
+              }
           },

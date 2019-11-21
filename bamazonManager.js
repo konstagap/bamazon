@@ -119,3 +119,17 @@ function addToInventory() {
           });
       });
     }
+    function addNewProduct(){
+        inquirer
+        .prompt([
+          {
+            type: "input",
+            name: "newProductName",
+            message: "Type new product name?",
+            validate: function(value) {
+                if (value) {
+                  return true;
+                }
+                return false;
+              }
+          },

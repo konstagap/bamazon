@@ -58,3 +58,15 @@ inquirer
           } else {
             connection.query(
               "UPDATE products SET ? WHERE ?",
+              [
+                {
+                  stock_quantity:
+                    chosenItem.stock_quantity - answer.userProductUnits,
+                  product_sales:
+                    parseInt(answer.userProductUnits) *
+                    parseInt(chosenItem.price)
+                },
+                {
+                  item_id: chosenItem.item_id
+                }
+              ],
